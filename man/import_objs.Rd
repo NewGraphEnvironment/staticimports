@@ -7,7 +7,7 @@
 import_objs(
   names,
   source = system.file("staticexports", package = "staticimports"),
-  outfile = here::here("R/staticimports.R"),
+  outfile = here::here("scripts/staticimports.R"),
   label = NULL,
   append = FALSE
 )

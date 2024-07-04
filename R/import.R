@@ -40,7 +40,7 @@
 #' project, as determined by [here::here()].
 #'
 #' The statically imported objects are written a file, by default
-#' `R/staticimports.R`.
+#' `scripts/staticimports.R`.
 #'
 #' @param dir A directory containing .R files to scan for import declarations.
 #' @param outfile File to write to. Defaults to R/staticimports.R in the current

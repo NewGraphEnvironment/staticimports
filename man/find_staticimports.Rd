@@ -4,7 +4,7 @@
 \alias{find_staticimports}
 \title{Find any static imports in the comments of the R/ directory}
 \usage{
-find_staticimports(dir = here::here("R/"))
+find_staticimports(dir = here::here("scripts/"))
 }
 \arguments{
 \item{dir}{A directory to look in. Defaults to}

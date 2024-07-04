@@ -4,7 +4,10 @@
 \alias{import}
 \title{Statically import objects}
 \usage{
-import(dir = here::here("R/"), outfile = here::here("R/staticimports.R"))
+import(
+  dir = here::here("scripts/"),
+  outfile = here::here("scripts/staticimports.R")
+)
 }
 \arguments{
 \item{dir}{A directory containing .R files to scan for import declarations.}
@@ -40,5 +43,5 @@ If a relative path is used, it will be relative to the top-leve of this
 project, as determined by \code{\link[here:here]{here::here()}}.
 
 The statically imported objects are written a file, by default
-\code{R/staticimports.R}.
+\code{scripts/staticimports.R}.
 }
