@@ -72,6 +72,8 @@ my_tab_caption <- function(caption_text = my_caption) {
   )
 }
 
+
+# default for full mobile function was height =500, width=780.
 my_leaflet <- function(height = 650, width = 970){
   leaflet::leaflet(height = height, width = width) |>
     leaflet::addTiles() |>
