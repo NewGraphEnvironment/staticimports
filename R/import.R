@@ -48,8 +48,8 @@
 #'
 #' @export
 import <- function(
-  dir     = here::here("R/"),
-  outfile = here::here("R/staticimports.R")
+  dir     = here::here("scripts/"),
+  outfile = here::here("scripts/staticimports.R")
 )
 {
   imports <- find_staticimports(dir)
@@ -91,7 +91,7 @@ import <- function(
 import_objs <- function(
   names,
   source  = system.file("staticexports", package = "staticimports"),
-  outfile = here::here("R/staticimports.R"),
+  outfile = here::here("scripts/staticimports.R"),
   label   = NULL,
   append  = FALSE
 ) {
@@ -178,7 +178,7 @@ import_objs <- function(
 #' @return A list of lists. Each sub-list has a `source` field and `names`.
 #'
 #' @export
-find_staticimports <- function(dir = here::here("R/")) {
+find_staticimports <- function(dir = here::here("scripts/")) {
   files <- dir(dir, pattern = "\\.[r|R]$", full.names = TRUE)
 
   comment_blocks <- lapply(files, function(file) {
