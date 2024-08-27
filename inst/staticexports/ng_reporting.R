@@ -77,7 +77,28 @@ my_tab_caption <- function(caption_text = my_caption) {
 my_leaflet <- function(height = 650, width = 970){
   leaflet::leaflet(height = height, width = width) |>
     leaflet::addTiles() |>
-    leaflet::addProviderTiles("Esri.WorldTopoMap", group = "Topo") |>
     leaflet::addProviderTiles("Esri.WorldImagery", group = "Ortho") |>
+    leaflet::addProviderTiles("Esri.WorldTopoMap", group = "Topo") |>
     leaflet.extras::addFullscreenControl()
+}
+
+my_untidy_table <- function(d){
+  d_prep <- d %>%
+    tibble::rownames_to_column() %>%
+    mutate(rowname = as.numeric(rowname),
+           col_id = case_when(rowname <= ceiling(nrow(.)/2) ~ 1,
+                              T ~ 2)) %>%
+    select(-rowname)
+  d1 <- d_prep %>%
+    filter(col_id == 1) %>%
+    select(-col_id)
+  d1$row_match <- seq(1:nrow(d1))
+  d2 <- d_prep %>%
+    filter(col_id == 2) %>%
+    select(-col_id) %>%
+    purrr::set_names(nm = '-')
+  d2$row_match <- seq(1:nrow(d2))
+  ##join them together
+  d_joined <- left_join(d1, d2, by = 'row_match') %>%
+    select(-row_match)
 }
