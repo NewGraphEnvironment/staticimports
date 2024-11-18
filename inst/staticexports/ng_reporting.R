@@ -56,7 +56,7 @@ my_dt_table <-   function(dat,
 
 #https://stackoverflow.com/questions/49819892/cross-referencing-dtdatatable-in-bookdown
 my_tab_caption <- function(caption_text = my_caption) {
-  # requires results="asis" in chunk header
+  # requires results="asis" in chunk header and only works in rmarkdown and not quarto
   cat(
     "<table>",
     paste0(
