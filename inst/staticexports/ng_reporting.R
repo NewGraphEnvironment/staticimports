@@ -56,6 +56,7 @@ my_dt_table <-   function(dat,
 
 #https://stackoverflow.com/questions/49819892/cross-referencing-dtdatatable-in-bookdown
 my_tab_caption <- function(caption_text = my_caption) {
+  # requires results="asis" in chunk header
   cat(
     "<table>",
     paste0(
@@ -82,6 +83,9 @@ my_leaflet <- function(height = 650, width = 970){
     leaflet.extras::addFullscreenControl()
 }
 
+
+# put together a table for viewing in a report.  just makes it reasonable in size putting random
+# columns beside eachother.
 my_untidy_table <- function(d){
   d_prep <- d %>%
     tibble::rownames_to_column() %>%
