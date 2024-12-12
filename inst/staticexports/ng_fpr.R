@@ -235,19 +235,18 @@ sfpr_structure_size_type <- function(
     dplyr::mutate(span_input = plyr::round_any(span_input, 0.5))
 
 
-  ##burn to a csvs so we can copy and paste into spreadsheet
+  ## Extract the pscis phase so we can use it in the file name
+  pscis_phase <- str_type |>
+    dplyr::summarise(phase = dplyr::case_when(
+      unique(source) == "pscis_phase1.xlsm" ~ "pscis1",
+      unique(source) == "pscis_phase2.xlsm" ~ "pscis2",
+      unique(source) == "pscis_reassessments.xlsm" ~ "pscis_reassessments")) |>
+    dplyr::pull(phase)
 
-  str_type %>%
-    dplyr::filter(source %ilike% 'phase1') %>%
-    readr::write_csv(file = paste0(getwd(), '/data/inputs_extracted/str_type_pscis1.csv'),
-                     na = '')
-  str_type %>%
-    dplyr::filter(source %ilike% 'phase2') %>%
-    readr::write_csv(file = paste0(getwd(), '/data/inputs_extracted/str_type_pscis2.csv'),
-                     na = '')
-  str_type %>%
-    dplyr::filter(source %ilike% 'reasses') %>%
-    readr::write_csv(file = paste0(getwd(), '/data/inputs_extracted/str_type_pscis_reassessments.csv'),
+
+  ## then burn to a csvs so we can copy and paste into spreadsheet
+  str_type |>
+    readr::write_csv(file = paste0('data/inputs_extracted/str_type_', pscis_phase, '.csv'),
                      na = '')
 
 }
