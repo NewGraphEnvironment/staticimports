@@ -214,7 +214,7 @@ sfpr_structure_size_type <- function(
                                                 barrier_result == 'Passable' | barrier_result == 'Unknown' ~ NA_real_,
                                                 T ~ 3))  %>%
     dplyr::mutate(span_input = dplyr::case_when((barrier_result == 'Barrier' | barrier_result == 'Potential')
-                                                & fill_dpth_over > 0 & !crossing_fix %ilike% 'Simulation' ~
+                                                & fill_dpth_over > 0 & !stringr::str_like(crossing_fix, 'Simulation') ~
                                                   (brdg_wdth + fill_dpth_mult * fill_dpth_over),  ##1m more fill = 3 m more bridge
                                                 T ~ span_input)) %>%
     dplyr::mutate(span_input = dplyr::case_when(span_input < (downstream_channel_width_meters + 4) & ##span not need be extended if already 4m bigger than channel width
