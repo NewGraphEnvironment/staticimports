@@ -21,10 +21,12 @@ my_dt_table <-   function(dat,
                           page_length = 10,
                           col_align = 'dt-center', #'dt-right',
                           font_size = '11px',
-                          style_input = 'bootstrap'){
+                          style_input = 'bootstrap',
+                          ...){
 
   dat |>
     DT::datatable(
+      ...,
       # style = style_input,
       class = 'cell-border stripe', #'dark' '.table-dark',
       #https://stackoverflow.com/questions/36062493/r-and-dt-show-filter-option-on-specific-columns
