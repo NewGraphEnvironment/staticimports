@@ -106,3 +106,20 @@ my_untidy_table <- function(d){
   d_joined <- left_join(d1, d2, by = 'row_match') %>%
     select(-row_match)
 }
+
+# not sure if we should implement this in ngr yet due to httr2 dependency. leaving here for now
+lngr_chk_url_response <- function(url, url_response = 200) {
+  response <- tryCatch(
+    httr2::request(url) |>
+      httr2::req_perform(),
+    error = function(e) e
+  )
+  if (inherits(response, "error")) {
+    return(FALSE)
+  }
+  httr2::resp_status(response) == url_response
+}
+
+# lngr_chk_url_response("https://www.github.com")
+# lngr_chk_url_response("testthis")
+# lngr_chk_url_response("https://www.newgraphenvironment.com/whopsie-daisy")
