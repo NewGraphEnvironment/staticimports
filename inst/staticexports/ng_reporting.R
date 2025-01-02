@@ -108,7 +108,7 @@ my_untidy_table <- function(d){
 }
 
 # not sure if we should implement this in ngr yet due to httr2 dependency. leaving here for now
-lngr_chk_url_response <- function(url, url_response = 200) {
+sngr_chk_url_response <- function(url, url_response = 200) {
   response <- tryCatch(
     httr2::request(url) |>
       httr2::req_perform(),
