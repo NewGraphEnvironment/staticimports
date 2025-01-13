@@ -261,7 +261,7 @@ sfpr_xref_rd_tenure_names <- function(){
                    "Wetzinkwa Community Forest Corporation", "Wetzinkwa Community Forest",
                    "West Fraser Mills Ltd.", "West Fraser",
                    "Timber Sales Manager", "BCTS",
-                   "Skeena Stikine Natural Resource District", "MoF",
+                   "DISTRICT MANAGER SKEENA STIKINE (DSS)", "MoF",
                    "DISTRICT MANAGER PRINCE GEORGE", "MoF",
                    "Winton Global Lumber Ltd.", "Winton"
 
