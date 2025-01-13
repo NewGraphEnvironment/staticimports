@@ -251,3 +251,20 @@ sfpr_structure_size_type <- function(
 
 }
 
+
+sfpr_xref_rd_tenure_names <- function(){
+  tibble::tribble( ~client_name, ~client_name_abb,
+                   "DISTRICT MANAGER NADINA (DND)",       "FLNR DND",
+                   "CANADIAN FOREST PRODUCTS LTD.",         "Canfor",
+                   "SOLID GROUND CONTRACTING LTD",    "Solid Ground",
+                   "CHINOOK COMFOR LIMITED",        "Chinook Comfor",
+                   "Wetzinkwa Community Forest Corporation", "Wetzinkwa Community Forest",
+                   "West Fraser Mills Ltd.", "West Fraser",
+                   "Timber Sales Manager", "BCTS",
+                   "Skeena Stikine Natural Resource District", "MoF",
+                   "DISTRICT MANAGER PRINCE GEORGE", "MoF",
+                   "Winton Global Lumber Ltd.", "Winton"
+
+)
+}
+
