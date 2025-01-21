@@ -122,6 +122,17 @@ sngr_chk_url_response <- function(url, url_response = 200) {
   httr2::resp_status(response) == url_response
 }
 
+
+# Retrieves the elevation of a site
+#' @param dat Sf containing the site names
+
+sngr_get_elev <- function(dat){
+  poisspatial::ps_elevation_google(dat,
+                                   key = Sys.getenv('GOOG_API_KEY'),
+                                   Z = 'elev') |>
+    mutate(elev = round(elev, 0))
+}
+
 # lngr_chk_url_response("https://www.github.com")
 # lngr_chk_url_response("testthis")
 # lngr_chk_url_response("https://www.newgraphenvironment.com/whopsie-daisy")

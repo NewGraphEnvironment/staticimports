@@ -269,13 +269,4 @@ sfpr_xref_rd_tenure_names <- function(){
 }
 
 
-# Retrieves the elevation of a site
-#' @param dat Sf containing the site names
-
-sfpr_get_elev <- function(dat){
-    poisspatial::ps_elevation_google(dat,
-                                     key = Sys.getenv('GOOG_API_KEY'),
-                                     Z = 'elev') |>
-      mutate(elev = round(elev, 0))
-  }
 
