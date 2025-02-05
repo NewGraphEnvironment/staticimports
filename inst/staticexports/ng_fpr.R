@@ -8,6 +8,7 @@ sfpr_xref_road_cost <- function(){
       "resource",          "rough",               1L,                 1L,                  30L,           100L,
         "permit",        "unknown",               1L,                 1L,                  30L,           100L,
         "permit",          "loose",               1L,                 1L,                  30L,           100L,
+        "permit",          "rough",               1L,                 1L,                  30L,           100L,
   "unclassified",          "loose",               1L,                 1L,                  30L,           100L,
   "unclassified",          "rough",               1L,                 1L,                  30L,           100L,
   "unclassified",          "paved",               1L,                 2L,                  50L,           150L,
