@@ -15,6 +15,7 @@ sfpr_xref_road_cost <- function(){
   "unclassified",        "unknown",               1L,                 2L,                  50L,           150L,
          "local",          "loose",               4L,                 1L,                 100L,           200L,
          "local",          "paved",               4L,                 2L,                 200L,           400L,
+     "collector",          "paved",               4L,                 2L,                 200L,           400L,
       "arterial",          "paved",              15L,                 2L,                 750L,          1500L,
        "highway",          "paved",              15L,                 2L,                 750L,          1500L,
           "rail",           "rail",              15L,                 2L,                 750L,          1500L
