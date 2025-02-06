@@ -57,23 +57,27 @@ my_dt_table <-   function(dat,
 }
 
 #https://stackoverflow.com/questions/49819892/cross-referencing-dtdatatable-in-bookdown
-my_tab_caption <- function(caption_text = my_caption) {
+my_tab_caption <- function(caption_text = my_caption, tip_header = TRUE) {
   # requires results="asis" in chunk header and only works in rmarkdown and not quarto
+
+  tip <- " <b>NOTE: To view all columns in the table - please click on one of the sort arrows within column headers before scrolling to the right.</b>"
+
   cat(
     "<table>",
     paste0(
       "<caption>",
       "(#tab:",
-      # this is the chunk name!!
       knitr::opts_current$get()$label,
       ")",
       caption_text,
+      if (tip_header) tip,
       "</caption>"
     ),
     "</table>",
     sep = "\n"
   )
 }
+
 
 
 # default for full mobile function was height =500, width=780.
