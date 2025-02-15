@@ -57,10 +57,11 @@ my_dt_table <-   function(dat,
 }
 
 #https://stackoverflow.com/questions/49819892/cross-referencing-dtdatatable-in-bookdown
-my_tab_caption <- function(caption_text = my_caption, tip_header = TRUE) {
+my_tab_caption <- function(
+    caption_text = my_caption,
+    tip_flag = TRUE,
+    tip_text = " <b>NOTE: To view all columns in the table - please click on one of the sort arrows within column headers before scrolling to the right.</b>") {
   # requires results="asis" in chunk header and only works in rmarkdown and not quarto
-
-  tip <- " <b>NOTE: To view all columns in the table - please click on one of the sort arrows within column headers before scrolling to the right.</b>"
 
   cat(
     "<table>",
@@ -70,7 +71,7 @@ my_tab_caption <- function(caption_text = my_caption, tip_header = TRUE) {
       knitr::opts_current$get()$label,
       ")",
       caption_text,
-      if (tip_header) tip,
+      if (tip_flag) tip_text,
       "</caption>"
     ),
     "</table>",
