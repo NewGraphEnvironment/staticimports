@@ -114,6 +114,32 @@ my_untidy_table <- function(d){
     select(-row_match)
 }
 
+
+my_untidy_table_2 <- function(d, n_cols = 2) {
+  chk::chk_data(d)
+  chk::chk_equal(ncol(d), 1)
+
+  # Extract column content and name
+  col_data <- d[[1]]
+  col_name <- names(d)[1]
+
+  # Pad the vector with NA to fill the final row
+  n_items <- length(col_data)
+  n_rows <- ceiling(n_items / n_cols)
+  padded <- c(col_data, rep(NA, n_cols * n_rows - n_items))
+
+  # Reshape into matrix and convert to dataframe
+  mat <- matrix(padded, ncol = n_cols, byrow = TRUE)
+  df_out <- as.data.frame(mat)
+
+  # Set colnames: first is original name, rest are "-"
+  colnames(df_out) <- c(col_name, rep("-", n_cols - 1))
+
+  return(df_out)
+}
+
+
+
 # not sure if we should implement this in ngr yet due to httr2 dependency. leaving here for now
 sngr_chk_url_response <- function(url, url_response = 200) {
   response <- tryCatch(
